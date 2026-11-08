@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://n064ftgq85qg"]
+
+[ext_resource type="PackedScene" uid="uid://de8tjc8yafgin" path="res://scenes/bumper.tscn" id="1_gwxtx"]
+[ext_resource type="PackedScene" uid="uid://bbqtaktj10cip" path="res://scenes/flipper_left.tscn" id="2_gwxtx"]
+[ext_resource type="PackedScene" uid="uid://ckainpfprc6l3" path="res://scenes/flipper_right.tscn" id="3_6vt44"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72hfc"]
+bounce = 10.0
+
+[node name="kicker" type="Node2D" unique_id=1822735132]
+
+[node name="flipper_top_left" parent="." unique_id=1782521437 instance=ExtResource("3_6vt44")]
+z_index = 1
+position = Vector2(-150, -230)
+rotation = -3.6651914
+
+[node name="flipper_top_right" parent="." unique_id=1605056115 instance=ExtResource("2_gwxtx")]
+z_index = 1
+position = Vector2(150, -230)
+rotation = 3.6651914
+
+[node name="flipper_bottem_left" parent="." unique_id=1295032490 instance=ExtResource("2_gwxtx")]
+z_index = 1
+position = Vector2(-150, 230)
+rotation = 0.5235988
+
+[node name="flipper_bottem_right" parent="." unique_id=631965812 instance=ExtResource("3_6vt44")]
+z_index = 1
+position = Vector2(150, 230)
+rotation = -0.5235988
+
+[node name="border" type="StaticBody2D" parent="." unique_id=1593348561]
+physics_material_override = SubResource("PhysicsMaterial_72hfc")
+
+[node name="outer border" type="CollisionPolygon2D" parent="border" unique_id=1486554041]
+polygon = PackedVector2Array(-250, -324, -250, 324, 250, 324, 250, -324, -325, -324, 57, -549, 683, -425, 688, 102, 586, 408, 261, 528, -48, 536, -503, 455, -707, 203, -671, -15, -535, -162, -434, -279)
+
+[node name="bottem left" type="CollisionPolygon2D" parent="border" unique_id=1456558509]
+polygon = PackedVector2Array(-137, 226, -251, 186, -284, 353, -137, 341)
+
+[node name="bottem right" type="CollisionPolygon2D" parent="border" unique_id=701091816]
+polygon = PackedVector2Array(137, 226, 251, 186, 303, 355, 137, 346)
+
+[node name="top right" type="CollisionPolygon2D" parent="border" unique_id=1880137833]
+rotation = 3.1415927
+polygon = PackedVector2Array(-137, 226, -251, 186, -318.99997, 356.00003, -137, 341)
+
+[node name="top left" type="CollisionPolygon2D" parent="border" unique_id=2044550448]
+rotation = 3.1415927
+polygon = PackedVector2Array(137, 226, 251, 186, 288.00003, 348.99997, 137, 346)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=561231131]
+visible = false
+enabled = false
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=209903514]
+polygon = PackedVector2Array(-250, -671, -137, -323, -137, -226, -250, -186, -250, 186, -137, 226, -137, 325, -250, 324, 250, 324, 137, 331, 137, 226, 250, 186, 250, -186, 137, -226, 137, -324, -137, -324, -137, -323, -137, -323, -138, -323, -938, -323, -110, -1133, 809, -725, 1656, -93, 921, 908, 385, 1019, 38, 1028, -1144, 880, -1463, 310, -1497, -110, -1457, -406, -1171, -710)
+
+[node name="bumper" type="Node2D" parent="." unique_id=1136534016]
+
+[node name="bumper" parent="bumper" unique_id=275333627 instance=ExtResource("1_gwxtx")]
+position = Vector2(1, 70)
+
+[node name="bumper2" parent="bumper" unique_id=2076057880 instance=ExtResource("1_gwxtx")]
+position = Vector2(-1, -70)

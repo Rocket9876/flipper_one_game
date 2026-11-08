@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b8c8gasaiqlig"]
+
+[ext_resource type="Script" uid="uid://bv5af7glcj7jh" path="res://scripts/ball.gd" id="1_7s4qf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6rmpw"]
+bounce = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jll8d"]
+radius = 12.5
+height = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rmpw"]
+radius = 12.5
+
+[node name="ball" type="RigidBody2D" unique_id=1585399328]
+physics_material_override = SubResource("PhysicsMaterial_6rmpw")
+script = ExtResource("1_7s4qf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1098700360]
+mesh = SubResource("SphereMesh_jll8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649322346]
+shape = SubResource("CircleShape2D_6rmpw")

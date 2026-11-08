@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c7285ubs1paxp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6rmpw"]
+friction = 0.0
+bounce = 0.01
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6rmpw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rmpw"]
+radius = 13.0
+height = 110.0
+
+[node name="test 2" type="AnimatableBody2D" unique_id=1909937540]
+physics_material_override = SubResource("PhysicsMaterial_6rmpw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=19094273]
+scale = Vector2(107.74999, 13)
+mesh = SubResource("CapsuleMesh_6rmpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653580814]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_6rmpw")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://de8tjc8yafgin"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6an6i"]
+bounce = 20.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6rmpw"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rmpw"]
+
+[node name="bumper" type="StaticBody2D" unique_id=275333627]
+physics_material_override = SubResource("PhysicsMaterial_6an6i")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1415502144]
+modulate = Color(1, 0, 0, 1)
+mesh = SubResource("SphereMesh_6rmpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=952550399]
+shape = SubResource("CircleShape2D_6rmpw")
