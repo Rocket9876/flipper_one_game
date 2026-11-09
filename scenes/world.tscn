@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfksll07r5j4h" path="res://scripts/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://b8c8gasaiqlig" path="res://scenes/ball.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://n064ftgq85qg" path="res://scenes/kicker.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://jtkal6lmg60c" path="res://scenes/bot.tscn" id="4_k0juu"]
 
 [node name="world" type="Node2D" unique_id=1513532067]
 script = ExtResource("1_4wyf3")
@@ -13,3 +14,6 @@ script = ExtResource("1_4wyf3")
 
 [node name="ball" parent="." unique_id=1585399328 instance=ExtResource("1_nnsk1")]
 gravity_scale = 0.116
+
+[node name="bot" parent="." unique_id=218765222 instance=ExtResource("4_k0juu")]
+position = Vector2(0, -324)

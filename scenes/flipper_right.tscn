@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckainpfprc6l3"]
 
-[ext_resource type="Script" uid="uid://duanwl2syax1y" path="res://scripts/flipper_right.gd" id="1_adt6r"]
+[ext_resource type="Script" uid="uid://duanwl2syax1y" path="res://scripts/flipper.gd" id="1_adt6r"]
 [ext_resource type="PackedScene" uid="uid://xua7icv2ifk0" path="res://scenes/flipper.tscn" id="1_gytkk"]
 
 [sub_resource type="Animation" id="Animation_adt6r"]
@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.1415927]
+"values": [4.1887903]
 }
 
 [sub_resource type="Animation" id="Animation_ial5u"]
@@ -34,17 +34,68 @@ tracks/0/keys = {
 "values": [3.1415927, 4.1887903]
 }
 
+[sub_resource type="Animation" id="Animation_jcq2w"]
+resource_name = "flip down"
+length = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flipper:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.1887903, 3.1415927]
+}
+
+[sub_resource type="Animation" id="Animation_gsjh7"]
+resource_name = "flip down left"
+length = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flipper:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0471976, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3snjk"]
+resource_name = "flip left"
+length = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flipper:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.0471975511965976]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3snjk"]
 _data = {
 &"RESET": SubResource("Animation_adt6r"),
-&"flip": SubResource("Animation_ial5u")
+&"flip": SubResource("Animation_ial5u"),
+&"flip down": SubResource("Animation_jcq2w"),
+&"flip down left": SubResource("Animation_gsjh7"),
+&"flip left": SubResource("Animation_3snjk")
 }
 
-[node name="flipper_right" type="Node2D" unique_id=1782521437]
+[node name="flipper" type="Node2D" unique_id=1782521437]
 script = ExtResource("1_adt6r")
 
 [node name="flipper" parent="." unique_id=1423176623 instance=ExtResource("1_gytkk")]
-rotation = 3.1415927
+rotation = 4.1887903
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1866315324]
 libraries/ = SubResource("AnimationLibrary_3snjk")

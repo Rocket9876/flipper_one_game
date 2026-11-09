@@ -19,7 +19,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_v6v7b"]
-resource_name = "flip"
+resource_name = "flip_up"
 length = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -37,7 +37,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpc2w"]
 _data = {
 &"RESET": SubResource("Animation_mayf8"),
-&"flip": SubResource("Animation_v6v7b")
+&"flip_up": SubResource("Animation_v6v7b")
 }
 
 [node name="flipper left" type="Node2D" unique_id=1605056115]

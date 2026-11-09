@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bv5af7glcj7jh" path="res://scripts/ball.gd" id="1_7s4qf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6rmpw"]
-bounce = 5.0
+bounce = 2.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_jll8d"]
 radius = 12.5
@@ -14,6 +14,7 @@ radius = 12.5
 
 [node name="ball" type="RigidBody2D" unique_id=1585399328]
 physics_material_override = SubResource("PhysicsMaterial_6rmpw")
+continuous_cd = 1
 script = ExtResource("1_7s4qf")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1098700360]

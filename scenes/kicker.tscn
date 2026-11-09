@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://n064ftgq85qg"]
 
 [ext_resource type="PackedScene" uid="uid://de8tjc8yafgin" path="res://scenes/bumper.tscn" id="1_gwxtx"]
-[ext_resource type="PackedScene" uid="uid://bbqtaktj10cip" path="res://scenes/flipper_left.tscn" id="2_gwxtx"]
 [ext_resource type="PackedScene" uid="uid://ckainpfprc6l3" path="res://scenes/flipper_right.tscn" id="3_6vt44"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72hfc"]
@@ -13,21 +12,27 @@ bounce = 10.0
 z_index = 1
 position = Vector2(-150, -230)
 rotation = -3.6651914
+playable = null
 
-[node name="flipper_top_right" parent="." unique_id=1605056115 instance=ExtResource("2_gwxtx")]
+[node name="flipper_top_right" parent="." unique_id=265827322 instance=ExtResource("3_6vt44")]
 z_index = 1
 position = Vector2(150, -230)
 rotation = 3.6651914
-
-[node name="flipper_bottem_left" parent="." unique_id=1295032490 instance=ExtResource("2_gwxtx")]
-z_index = 1
-position = Vector2(-150, 230)
-rotation = 0.5235988
+playable = null
+left = true
 
 [node name="flipper_bottem_right" parent="." unique_id=631965812 instance=ExtResource("3_6vt44")]
 z_index = 1
 position = Vector2(150, 230)
 rotation = -0.5235988
+playable = true
+
+[node name="flipper_bottem_left" parent="." unique_id=2129767975 instance=ExtResource("3_6vt44")]
+z_index = 1
+position = Vector2(-150, 230)
+rotation = 0.5235988
+playable = true
+left = true
 
 [node name="border" type="StaticBody2D" parent="." unique_id=1593348561]
 physics_material_override = SubResource("PhysicsMaterial_72hfc")
