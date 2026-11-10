@@ -1,2 +1,2 @@
-# flipper_one_game
+# flipper one game
 a small game where you play flipper :)
