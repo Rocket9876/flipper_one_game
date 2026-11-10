@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckainpfprc6l3" path="res://scenes/flipper_right.tscn" id="3_6vt44"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72hfc"]
-bounce = 10.0
+bounce = 5.0
 
 [node name="kicker" type="Node2D" unique_id=1822735132]
 
@@ -12,13 +12,11 @@ bounce = 10.0
 z_index = 1
 position = Vector2(-150, -230)
 rotation = -3.6651914
-playable = null
 
 [node name="flipper_top_right" parent="." unique_id=265827322 instance=ExtResource("3_6vt44")]
 z_index = 1
 position = Vector2(150, -230)
 rotation = 3.6651914
-playable = null
 left = true
 
 [node name="flipper_bottem_right" parent="." unique_id=631965812 instance=ExtResource("3_6vt44")]
@@ -55,7 +53,7 @@ rotation = 3.1415927
 polygon = PackedVector2Array(137, 226, 251, 186, 288.00003, 348.99997, 137, 346)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=561231131]
-visible = false
+z_index = 10
 enabled = false
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=209903514]

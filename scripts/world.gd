@@ -6,13 +6,15 @@ var state  = 0
 
 var focused_quadrant
 
-func _ready() -> void:
-	pass
+
 
 func flip(path):
 	path.flip()
 
+@export var ball_spawn_range:float
 
+@onready var top_score = $top_score
+@onready var bottem_score = $bottem_score
 
 func _physics_process(delta: float) -> void:
 	#flip($"kicker/flipper_bottem_left")
@@ -22,7 +24,9 @@ func _physics_process(delta: float) -> void:
 	#print(mouse_quadrant)
 	global.bot["position"] = $bot.position
 	detect_flip_action()
-	
+
+func _ready():
+	small_restart()
 
 func get_number_dir(number):
 	if number > 0:
@@ -54,3 +58,31 @@ func bot_flipper_interface(selection):
 	else:
 		$kicker/flipper_top_right.flip()
 	
+
+
+
+func _on_bottem_zone_body_entered(body) -> void:
+	if body.is_in_group("ball"):
+		win("bottem")
+
+func _on_top_zone_body_entered(body) -> void:
+	if body.is_in_group("ball"):
+		win("top")
+
+func win(player, points = 1):
+	global.score[player] += points
+	$AnimationPlayer.play("flash " + player)
+	$flash.visible = true
+	global.ball.visible = false
+	global.ball.sleeping = true
+	$"win cooldown".start()
+
+func small_restart():
+	$flash.visible = false
+	global.ball.position = Vector2(randf_range(-ball_spawn_range,ball_spawn_range),randf_range(-ball_spawn_range,ball_spawn_range))
+	global.ball.visible = true
+	global.ball.sleeping = false
+	global.ball.move_and_collide(Vector2.ZERO)
+
+func _on_win_cooldown_timeout() -> void:
+	small_restart()

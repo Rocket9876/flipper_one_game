@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xua7icv2ifk0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rwgxs"]
-bounce = 5.0
+bounce = 0.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6rmpw"]
 radius = 10.0

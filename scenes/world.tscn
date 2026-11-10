@@ -4,9 +4,105 @@
 [ext_resource type="PackedScene" uid="uid://b8c8gasaiqlig" path="res://scenes/ball.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://n064ftgq85qg" path="res://scenes/kicker.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://jtkal6lmg60c" path="res://scenes/bot.tscn" id="4_k0juu"]
+[ext_resource type="Texture2D" uid="uid://htswteyxxpev" path="res://art/flash.png" id="5_71j4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rmpw"]
+size = Vector2(274, 29)
+
+[sub_resource type="Animation" id="Animation_qfnet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 730)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flash:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i7141"]
+resource_name = "flash bottem"
+length = 0.5
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.5, 100),
+"update": 2,
+"values": [Vector2(0, 730), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flash:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4mrxx"]
+resource_name = "flash top"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 180),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.1415927, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flash:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0, -730), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7r4gi"]
+_data = {
+&"RESET": SubResource("Animation_qfnet"),
+&"flash bottem": SubResource("Animation_i7141"),
+&"flash top": SubResource("Animation_4mrxx")
+}
 
 [node name="world" type="Node2D" unique_id=1513532067]
 script = ExtResource("1_4wyf3")
+ball_spawn_range = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=673456223]
 
@@ -17,3 +113,63 @@ gravity_scale = 0.116
 
 [node name="bot" parent="." unique_id=218765222 instance=ExtResource("4_k0juu")]
 position = Vector2(0, -324)
+
+[node name="bottem zone" type="Area2D" parent="." unique_id=883159120]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottem zone" unique_id=1528649446]
+position = Vector2(0, 309.5)
+shape = SubResource("RectangleShape2D_6rmpw")
+
+[node name="top zone" type="Area2D" parent="." unique_id=1777476543]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top zone" unique_id=1232585457]
+position = Vector2(0, -309.5)
+shape = SubResource("RectangleShape2D_6rmpw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=996158717]
+libraries/ = SubResource("AnimationLibrary_7r4gi")
+
+[node name="flash" type="Sprite2D" parent="." unique_id=1105433866]
+modulate = Color(1, 0.8039216, 0, 1)
+z_index = -3
+position = Vector2(0, 730)
+texture = ExtResource("5_71j4m")
+
+[node name="win cooldown" type="Timer" parent="." unique_id=606996943]
+one_shot = true
+
+[node name="lose countdown" type="Timer" parent="." unique_id=1873490069]
+
+[node name="top_score" type="RichTextLabel" parent="." unique_id=713592620]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 251.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 256
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bottem_score" type="RichTextLabel" parent="." unique_id=662220328]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -251.0
+offset_bottom = 324.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 256
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="bottem zone" to="." method="_on_bottem_zone_body_entered"]
+[connection signal="body_entered" from="top zone" to="." method="_on_top_zone_body_entered"]
+[connection signal="timeout" from="win cooldown" to="." method="_on_win_cooldown_timeout"]

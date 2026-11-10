@@ -3,6 +3,7 @@ extends Node2D
 
 @export var playable:bool
 
+var state = 0
 
 @export var left = false
 
@@ -23,14 +24,18 @@ func _physics_process(delta: float) -> void:
 
 
 func flip():
-		if left:
-			$AnimationPlayer.play("flip left")
-		else:
-			$AnimationPlayer.play("flip")
+	print(1)
+	state = 1
+	if left:
+		$AnimationPlayer.play("flip left")
+	else:
+		$AnimationPlayer.play("flip")
 		
 
 func flip_down():
-		if left:
-			$AnimationPlayer.play("flip down left")
-		else:
-			$AnimationPlayer.play("flip down")
+	print(2)
+	state = 0
+	if left:
+		$AnimationPlayer.play("flip down left")
+	else:
+		$AnimationPlayer.play("flip down")
