@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 
 
 func flip():
-	print(1)
 	state = 1
 	if left:
 		$AnimationPlayer.play("flip left")
@@ -33,7 +32,6 @@ func flip():
 		
 
 func flip_down():
-	print(2)
 	state = 0
 	if left:
 		$AnimationPlayer.play("flip down left")

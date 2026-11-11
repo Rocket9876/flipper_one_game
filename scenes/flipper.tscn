@@ -1,25 +1,24 @@
 [gd_scene format=3 uid="uid://xua7icv2ifk0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rwgxs"]
-bounce = 0.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6rmpw"]
 radius = 10.0
-height = 120.0
+height = 130.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rmpw"]
-height = 120.0
+height = 130.0
 
 [node name="flipper" type="AnimatableBody2D" unique_id=1423176623]
 physics_material_override = SubResource("PhysicsMaterial_rwgxs")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=479111554]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(60, 0)
+position = Vector2(65, 0)
 rotation = 1.5707964
 mesh = SubResource("CapsuleMesh_6rmpw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=102987862]
-position = Vector2(60, 0)
+position = Vector2(65, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_6rmpw")

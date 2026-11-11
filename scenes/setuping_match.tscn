@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b8m785ly2ripp"]
+
+[ext_resource type="Script" uid="uid://di5vdlilyd1dj" path="res://scripts/setuping_match.gd" id="1_wbiti"]
+
+[node name="setuping custom match" type="Control" unique_id=1071944829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbiti")
+
+[node name="select Bot" type="OptionButton" parent="." unique_id=1151447051]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -103.5
+offset_right = 118.0
+offset_bottom = -72.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Select the bot you want to play against."
+selected = 0
+item_count = 2
+popup/item_0/text = "select BOT"
+popup/item_0/id = 1
+popup/item_1/text = "rtzdfhdfvhbdfhdfhdfhdfh"
+popup/item_1/id = 0
+
+[node name="start" type="Button" parent="." unique_id=1049999864]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -83.0
+offset_right = 28.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "START"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=104386271]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -18.0
+offset_right = 114.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "how many points to win?"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

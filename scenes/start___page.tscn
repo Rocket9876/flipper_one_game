@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bmsljjumdt4wq"]
 
+[ext_resource type="Script" uid="uid://dv14i3sy2qa4p" path="res://scripts/start___page.gd" id="1_mupss"]
+
 [node name="start - page" type="Control" unique_id=248547081]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mupss")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1787584814]
 layout_mode = 1
@@ -36,11 +39,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -80.5
+offset_top = 3.5
+offset_right = 80.5
+offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "PATHWAY"
+
+[node name="custom match" type="Button" parent="Buttons" unique_id=1938539171]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.5
+offset_top = -56.5
+offset_right = 131.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "CUSTOM MATCH"
+
+[connection signal="pressed" from="Buttons/custom match" to="." method="_on_custom_match_pressed"]

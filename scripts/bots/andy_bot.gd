@@ -5,6 +5,8 @@ var near = false
 var distance = 300
 
 func _physics_process(delta: float) -> void:
+	if global.current_bot == self:
+		global.bot["name"] = "ANDY"
 	action_logic()
 
 func action_logic():

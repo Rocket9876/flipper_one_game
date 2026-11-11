@@ -66,3 +66,9 @@ position = Vector2(1, 70)
 
 [node name="bumper2" parent="bumper" unique_id=2076057880 instance=ExtResource("1_gwxtx")]
 position = Vector2(-1, -70)
+
+[node name="bumper3" parent="bumper" unique_id=468709952 instance=ExtResource("1_gwxtx")]
+position = Vector2(160, 0)
+
+[node name="bumper4" parent="bumper" unique_id=598556808 instance=ExtResource("1_gwxtx")]
+position = Vector2(-160, 0)

@@ -14,7 +14,8 @@ var right = 0
 
 
 func _physics_process(delta: float) -> void:
-	print(detect_flipper())
+	if global.current_bot == self:
+		global.bot["name"] = "ALEX"
 	if detect_flipper() == "left":
 		flipper = global.flipper_top_left
 	elif detect_flipper() == "right":
