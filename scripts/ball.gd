@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 func gravity():
 	if position.y < 0:
 		gravity_scale = -gravityScale
-	elif position.y > 0:
+	else:
 		gravity_scale = gravityScale

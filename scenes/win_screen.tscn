@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://chd6r2ym2wnx8"]
+
+[ext_resource type="Script" uid="uid://bn7kuu6jqeqi" path="res://scripts/win_screen.gd" id="1_wv5lq"]
+
+[node name="win screen" type="Control" unique_id=699910586]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wv5lq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=647353772]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="winner" type="RichTextLabel" parent="." unique_id=1793933099]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "aa"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="back main" type="Button" parent="." unique_id=1042947808]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -106.0
+offset_right = 170.5
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "BACK TO MAIN MENU"
+
+[connection signal="pressed" from="back main" to="." method="_on_back_main_pressed"]

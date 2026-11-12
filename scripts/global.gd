@@ -26,17 +26,19 @@ var bot = {"position":Vector2(),"name":""}
 
 var current_bot
 
-@onready var flipper_top_left = get_node("/root/world/kicker/flipper_top_left")
-@onready var flipper_top_right = get_node("/root/world/kicker/flipper_top_right")
+var current_bot_name
 
-var match_settings = {"points_win":5}
+@onready var flipper_top_left
+@onready var flipper_top_right 
+
+var match_settings = {"points_win":5,"pathway_match":false}
 
 func _ready() -> void:
 	for i in DirAccess.get_files_at(bot_path):
+		i = i.trim_suffix(".remap")
 		if not i.ends_with(".uid"):
-			bots.merge({i.get_slice("_",0):{"path":i}})
-	print(bots)
-	current_bot = alex
+			
+			bots.merge({i.get_slice("_",0):{"path":bot_path + i}})
 
 func _physics_process(delta: float) -> void:
 	if in_match:
@@ -45,3 +47,9 @@ func _physics_process(delta: float) -> void:
 		current_bot._physics_process(delta)
 		world.top_score.text = str(score["top"])
 		world.bottem_score.text = str(score["bottem"])
+
+func match_start():
+	flipper_top_left = get_node("/root/world/kicker/flipper_top_left")
+	flipper_top_right = get_node("/root/world/kicker/flipper_top_right")
+	world = get_node("/root/world")
+	ball = get_node("/root/world/ball")

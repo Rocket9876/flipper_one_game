@@ -6,7 +6,6 @@ func _ready() -> void:
 	$"select Bot".item_count = global.bots.size()
 	var count = 0
 	for i in global.bots:
-		print(i)
 		$"select Bot".set_item_text(count,i)
 		count += 1
 
@@ -17,7 +16,9 @@ func _on_text_edit_text_changed() -> void:
 
 
 func _on_start_pressed() -> void:
-	global.in_match = true
-	global.current_bot = load(global.bots[$"select Bot".get_item_text($"select Bot".get_selected_id())]["path"])
+	global.current_bot = load(global.bots[$"select Bot".get_item_text($"select Bot".selected)]["path"]).new()
+	global.current_bot_name = $"select Bot".get_item_text($"select Bot".selected)
 	global.match_settings["points_win"] = int($TextEdit.text)
+	global.match_settings["pathway_match"] = false
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	#global.match_start()

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://wbym0vdkl7on"]
+
+[ext_resource type="Script" uid="uid://di5au2f05uecl" path="res://scripts/back_button.gd" id="1_mki26"]
+
+[node name="Button" type="Button" unique_id=269549481]
+offset_left = -45.5
+offset_top = -26.5
+offset_right = 45.5
+offset_bottom = 26.5
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+script = ExtResource("1_mki26")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

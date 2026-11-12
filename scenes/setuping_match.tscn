@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8m785ly2ripp"]
 
 [ext_resource type="Script" uid="uid://di5vdlilyd1dj" path="res://scripts/setuping_match.gd" id="1_wbiti"]
+[ext_resource type="PackedScene" uid="uid://wbym0vdkl7on" path="res://scenes/back_button.tscn" id="2_g3qw8"]
 
 [node name="setuping custom match" type="Control" unique_id=1071944829]
 layout_mode = 3
@@ -62,6 +63,18 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "how many points to win?"
+
+[node name="back Button" parent="." unique_id=269549481 instance=ExtResource("2_g3qw8")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -68.0
+offset_right = 106.0
+offset_bottom = -15.0
+grow_vertical = 0
+path = "res://scenes/start___page.tscn"
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

@@ -102,8 +102,9 @@ _data = {
 
 [node name="world" type="Node2D" unique_id=1513532067]
 script = ExtResource("1_4wyf3")
+start_force = 100.0
 ball_normal_time = 5.0
-ball_danger_time = 5.0
+ball_danger_time = 10.0
 ball_spawn_range = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=673456223]

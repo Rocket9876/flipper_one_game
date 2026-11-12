@@ -8,6 +8,8 @@ var focused_quadrant
 
 var keyboard_control = false
 
+@export var start_force:float
+
 @export var ball_normal_time:float
 @export var ball_danger_time:float
 var ball_half
@@ -44,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		global.ball.get_node("rotation_lock/RichTextLabel").text = str($Ball_Timer.time_left)
 
 func _ready():
+	global.match_start()
 	global.in_match = true
 	small_restart()
 	$name_top.text = global.bot["name"]
@@ -93,6 +96,9 @@ func win(player, points = 1):
 	global.ball.position = Vector2(0,0)
 	global.ball.move_and_collide(Vector2.ZERO)
 	global.score[player] += points
+	if global.score[player] >= global.match_settings["points_win"]:
+		global.in_match = false
+		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 	if player == "top":
 		$AnimationPlayer.play("flash " + "bottem")
 	else:
@@ -103,13 +109,16 @@ func win(player, points = 1):
 	$"win cooldown".start()
 
 func small_restart():
-	global.ball.get_node("rotation_lock/RichTextLabel").visible = true
+	global.ball.get_node("rotation_lock/RichTextLabel").visible = false
 	$Ball_Timer.start()
 	$flash.visible = false
 	global.ball.position = Vector2(randf_range(-ball_spawn_range,ball_spawn_range),randf_range(-ball_spawn_range,ball_spawn_range))
 	global.ball.visible = true
+	ball_danger = false
 	global.ball.sleeping = false
 	global.ball.move_and_collide(Vector2.ZERO)
+	var direction = randi_range(0,360)
+	global.ball.apply_central_impulse(Vector2(sin(direction),cos(direction)) * start_force)
 
 func _on_win_cooldown_timeout() -> void:
 	small_restart()

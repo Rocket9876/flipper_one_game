@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://8ro5qf54itud"]
+
+[ext_resource type="Script" uid="uid://bhd0bqoa8apmy" path="res://scripts/pathway.gd" id="1_f7yso"]
+[ext_resource type="PackedScene" uid="uid://b0iwww8m32oje" path="res://scenes/pathway___segment.tscn" id="2_p6ejx"]
+
+[node name="Pathway" type="Control" unique_id=1407232057]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7yso")
+max_position = {
+"bottem": 0,
+"top": -50000
+}
+scroll_speed = 10.0
+
+[node name="pathway_elements" type="Control" parent="." unique_id=1892390666]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="pathway_elements" unique_id=773669689]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.5
+offset_top = -365.0
+offset_right = 12.5
+offset_bottom = 4158.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Pathway - segment" parent="pathway_elements" unique_id=940446985 instance=ExtResource("2_p6ejx")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+stage = 2
+stage_name = "STAGE 0"
+Enemie = "ALEX"
+min_points = 5

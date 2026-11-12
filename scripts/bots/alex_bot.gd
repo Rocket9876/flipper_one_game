@@ -1,6 +1,6 @@
 extends Node
 
-var y_distance = -130
+var y_distance = -120
 
 @onready var flipper = global.flipper_top_right
 
