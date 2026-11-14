@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bv5af7glcj7jh" path="res://scripts/ball.gd" id="1_7s4qf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6rmpw"]
+bounce = 20.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_jll8d"]
 radius = 12.5
@@ -15,6 +16,8 @@ radius = 12.5
 physics_material_override = SubResource("PhysicsMaterial_6rmpw")
 continuous_cd = 1
 script = ExtResource("1_7s4qf")
+normal = Color(1, 1, 1, 1)
+speed = Color(1, 1, 0, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1098700360]
 mesh = SubResource("SphereMesh_jll8d")
@@ -51,3 +54,9 @@ text = "12"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="speed timer" type="Timer" parent="." unique_id=1624316850]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="speed timer" to="." method="_on_speed_timer_timeout"]

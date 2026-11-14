@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://di5vdlilyd1dj" path="res://scripts/setuping_match.gd" id="1_wbiti"]
 [ext_resource type="PackedScene" uid="uid://wbym0vdkl7on" path="res://scenes/back_button.tscn" id="2_g3qw8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3qw8"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.6)
+
 [node name="setuping custom match" type="Control" unique_id=1071944829]
 layout_mode = 3
 anchors_preset = 15
@@ -75,6 +78,27 @@ offset_right = 106.0
 offset_bottom = -15.0
 grow_vertical = 0
 path = "res://scenes/start___page.tscn"
+
+[node name="powerups" type="CheckButton" parent="." unique_id=1564332136]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 39.5
+offset_right = 62.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g3qw8")
+text = "powerups"
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

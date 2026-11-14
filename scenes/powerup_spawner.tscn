@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://w8j48pichnwy"]
+
+[ext_resource type="Script" uid="uid://uq3x3y4fty6a" path="res://scripts/powerup_spawner.gd" id="1_x3vp6"]
+
+[node name="powerup spawner" type="Marker2D" unique_id=2139533162]
+script = ExtResource("1_x3vp6")

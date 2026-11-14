@@ -11,7 +11,14 @@ var completed = false
 @export var min_points:int
 
 func _ready() -> void:
+	if global.completed_stage >= stage:
+		completed = true
 	$"STAGE DESCRIPTION".text = stage_name + "\n\nEnemie: " + Enemie + "\n\nThe first player to reach " + str(min_points) + " points wins!" + "\n\nCompleted: " + str(completed)
+	if global.completed_stage +1 >= stage:
+		visible = true
+	else:
+		visible = false
+	
 
 
 

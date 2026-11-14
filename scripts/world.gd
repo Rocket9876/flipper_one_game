@@ -19,6 +19,8 @@ var ball_danger = false
 func flip(path):
 	path.flip()
 
+var powerup_spawned = false
+
 @export var ball_spawn_range:float
 
 @onready var top_score = $top_score
@@ -46,6 +48,8 @@ func _physics_process(delta: float) -> void:
 		global.ball.get_node("rotation_lock/RichTextLabel").text = str($Ball_Timer.time_left)
 
 func _ready():
+	if global.match_settings["powerups"]:
+		$powerup_spawm_rythm.start()
 	global.match_start()
 	global.in_match = true
 	small_restart()
@@ -119,6 +123,7 @@ func small_restart():
 	global.ball.move_and_collide(Vector2.ZERO)
 	var direction = randi_range(0,360)
 	global.ball.apply_central_impulse(Vector2(sin(direction),cos(direction)) * start_force)
+	global.ball.deactivate_all_powerups()
 
 func _on_win_cooldown_timeout() -> void:
 	small_restart()
@@ -160,3 +165,16 @@ func _on_ball_timer_timeout() -> void:
 		else:
 			win("top")
 	
+
+func spawn_powerups():
+	if randi_range(1,1) == 1:
+		var spawner = get_tree().get_nodes_in_group("spawner")[randi_range(0,get_tree().get_nodes_in_group("spawner").size() - 1)]
+		var powerup = global.speed_powerup.instantiate()
+		add_child(powerup)
+		powerup.position = spawner.position
+		powerup_spawned = true
+
+
+func _on_powerup_spawm_rythm_timeout() -> void:
+	if !powerup_spawned and !global.ball.active_powerups["speed"]:
+		spawn_powerups()

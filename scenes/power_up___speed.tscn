@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dta8w2h8shc2x"]
+
+[ext_resource type="Script" uid="uid://b21gle8bmnw4q" path="res://scripts/power_up___speed.gd" id="1_vpd3m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rmpw"]
+radius = 22.0
+
+[node name="Power up - speed" type="Node2D" unique_id=2010582544 groups=["powerup"]]
+script = ExtResource("1_vpd3m")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1672824062]
+modulate = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-20, 27, 20, -3.5, 0, -3.5, 20, -27, -20, 3.5, 0, 3.5)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=25209167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=868868127]
+shape = SubResource("CircleShape2D_6rmpw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

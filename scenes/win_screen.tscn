@@ -34,7 +34,7 @@ text = "aa"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="back main" type="Button" parent="." unique_id=1042947808]
+[node name="back" type="Button" parent="." unique_id=1042947808]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -50,4 +50,4 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "BACK TO MAIN MENU"
 
-[connection signal="pressed" from="back main" to="." method="_on_back_main_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

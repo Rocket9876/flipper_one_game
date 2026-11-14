@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ckainpfprc6l3" path="res://scenes/flipper_right.tscn" id="3_6vt44"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72hfc"]
-bounce = 5.0
+friction = 0.0
+bounce = 20.0
 
 [node name="kicker" type="Node2D" unique_id=1822735132]
 

@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://de8tjc8yafgin"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6an6i"]
-bounce = 20.0
+friction = 0.0
+bounce = 40.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_6rmpw"]
-radius = 10.0
-height = 20.0
+radius = 15.0
+height = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rmpw"]
+radius = 15.0
 
 [node name="bumper" type="StaticBody2D" unique_id=275333627]
 physics_material_override = SubResource("PhysicsMaterial_6an6i")

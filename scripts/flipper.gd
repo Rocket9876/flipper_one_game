@@ -23,17 +23,19 @@ func _physics_process(delta: float) -> void:
 			pass
 
 
-func flip():
-	state = 1
-	if left:
-		$AnimationPlayer.play("flip left")
-	else:
-		$AnimationPlayer.play("flip")
+func flip(force = false):
+	if state == 0 or force:
+		state = 1
+		if left:
+			$AnimationPlayer.play("flip left")
+		else:
+			$AnimationPlayer.play("flip")
 		
 
-func flip_down():
-	state = 0
-	if left:
-		$AnimationPlayer.play("flip down left")
-	else:
-		$AnimationPlayer.play("flip down")
+func flip_down(force = false):
+	if state == 1 or force:
+		state = 0
+		if left:
+			$AnimationPlayer.play("flip down left")
+		else:
+			$AnimationPlayer.play("flip down")

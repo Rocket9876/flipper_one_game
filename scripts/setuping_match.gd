@@ -20,5 +20,6 @@ func _on_start_pressed() -> void:
 	global.current_bot_name = $"select Bot".get_item_text($"select Bot".selected)
 	global.match_settings["points_win"] = int($TextEdit.text)
 	global.match_settings["pathway_match"] = false
+	global.match_settings["powerups"] = $powerups.button_pressed
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 	#global.match_start()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhd0bqoa8apmy" path="res://scripts/pathway.gd" id="1_f7yso"]
 [ext_resource type="PackedScene" uid="uid://b0iwww8m32oje" path="res://scenes/pathway___segment.tscn" id="2_p6ejx"]
+[ext_resource type="PackedScene" uid="uid://wbym0vdkl7on" path="res://scenes/back_button.tscn" id="3_rlkvg"]
 
 [node name="Pathway" type="Control" unique_id=1407232057]
 layout_mode = 3
@@ -49,7 +50,18 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-stage = 2
 stage_name = "STAGE 0"
-Enemie = "ALEX"
+Enemie = "alex"
 min_points = 5
+
+[node name="back Button" parent="." unique_id=269549481 instance=ExtResource("3_rlkvg")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -68.0
+offset_right = 106.0
+offset_bottom = -15.0
+grow_vertical = 0
+path = "res://scenes/start___page.tscn"

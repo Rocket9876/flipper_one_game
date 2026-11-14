@@ -45,9 +45,7 @@ offset_right = 80.5
 offset_bottom = 56.5
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "Coming soon"
 theme_override_font_sizes/font_size = 32
-disabled = true
 text = "PATHWAY"
 
 [node name="custom match" type="Button" parent="Buttons" unique_id=1938539171]
@@ -66,4 +64,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "CUSTOM MATCH"
 
+[connection signal="pressed" from="Buttons/Pathway" to="." method="_on_pathway_pressed"]
 [connection signal="pressed" from="Buttons/custom match" to="." method="_on_custom_match_pressed"]
