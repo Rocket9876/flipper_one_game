@@ -16,10 +16,19 @@ func _on_text_edit_text_changed() -> void:
 
 
 func _on_start_pressed() -> void:
-	global.current_bot = load(global.bots[$"select Bot".get_item_text($"select Bot".selected)]["path"]).new()
-	global.current_bot_name = $"select Bot".get_item_text($"select Bot".selected)
+	if $"against bot".button_pressed:
+		global.current_bot = load(global.bots[$"select Bot".get_item_text($"select Bot".selected)]["path"]).new()
+		global.current_bot_name = $"select Bot".get_item_text($"select Bot".selected)
+	else:
+		global.current_bot = null
+		global.current_bot_name = ""
 	global.match_settings["points_win"] = int($TextEdit.text)
 	global.match_settings["pathway_match"] = false
 	global.match_settings["powerups"] = $powerups.button_pressed
+	global.match_settings["bot"] = $"against bot".button_pressed
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 	#global.match_start()
+
+
+func _on_local_1v_1_toggled(toggled_on: bool) -> void:
+	$"select Bot".visible = toggled_on

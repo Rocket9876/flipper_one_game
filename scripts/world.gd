@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		keyboard_control = true
 	if Input.is_action_pressed("click"):
 		keyboard_control = false
-	$name_top.text = global.bot["name"]
 	mouse_quadrant = Vector2(get_number_dir(get_global_mouse_position().x),get_number_dir(get_global_mouse_position().y))
 	global.bot["position"] = $bot.position
 	
@@ -48,12 +47,17 @@ func _physics_process(delta: float) -> void:
 		global.ball.get_node("rotation_lock/RichTextLabel").text = str($Ball_Timer.time_left)
 
 func _ready():
+	print(focused_quadrant)
 	if global.match_settings["powerups"]:
 		$powerup_spawm_rythm.start()
 	global.match_start()
 	global.in_match = true
 	small_restart()
-	$name_top.text = global.bot["name"]
+	if global.match_settings["bot"]:
+		$name_top.text = global.bot["name"]
+	else:
+		$name_top.text = "top"
+		$name_bottem.text = "bottem"
 
 func get_number_dir(number):
 	if number > 0:
@@ -75,9 +79,10 @@ func detect_flip_action():
 			focused_quadrant = mouse_quadrant
 			get_current_flipper().flip()
 	elif Input.is_action_just_released("click"):
-		if get_current_flipper(focused_quadrant).playable and state == 1:
-			get_current_flipper(focused_quadrant).flip_down()
-			state = 0
+		if focused_quadrant:
+			if get_current_flipper(focused_quadrant).playable and state == 1:
+				get_current_flipper(focused_quadrant).flip_down()
+				state = 0
 
 func bot_flipper_interface(selection):
 	if selection == 1:
@@ -138,6 +143,16 @@ func detect_flip_action_keyboard():
 		get_node("kicker/flipper_bottem_left").flip()
 	elif get_node("kicker/flipper_bottem_left").state == 1 and not Input.is_action_pressed("<"):
 		get_node("kicker/flipper_bottem_left").flip_down()
+	
+	if not global.match_settings["bot"]:
+		if Input.is_action_pressed("D") and get_node("kicker/flipper_top_right").state == 0:
+			get_node("kicker/flipper_top_right").flip() 
+		elif get_node("kicker/flipper_top_right").state == 1 and not Input.is_action_pressed("D"):
+			get_node("kicker/flipper_top_right").flip_down()
+		if Input.is_action_pressed("A") and get_node("kicker/flipper_top_left").state == 0:
+			get_node("kicker/flipper_top_left").flip()
+		elif get_node("kicker/flipper_top_left").state == 1 and not Input.is_action_pressed("A"):
+			get_node("kicker/flipper_top_left").flip_down()
 
 func ball_counter():
 	if global.ball_position.y > 0 and ball_half != "bottem":
@@ -167,14 +182,15 @@ func _on_ball_timer_timeout() -> void:
 	
 
 func spawn_powerups():
-	if randi_range(1,1) == 1:
+	if randi_range(1,4) == 1:
 		var spawner = get_tree().get_nodes_in_group("spawner")[randi_range(0,get_tree().get_nodes_in_group("spawner").size() - 1)]
-		var powerup = global.speed_powerup.instantiate()
+		var powerup = [global.speed_powerup.instantiate(),global.jump_powerup.instantiate()]
+		powerup = powerup.pick_random()
 		add_child(powerup)
 		powerup.position = spawner.position
 		powerup_spawned = true
 
 
 func _on_powerup_spawm_rythm_timeout() -> void:
-	if !powerup_spawned and !global.ball.active_powerups["speed"]:
+	if !powerup_spawned and !(global.ball.active_powerups["speed"] or global.ball.active_powerups["jump"]):
 		spawn_powerups()

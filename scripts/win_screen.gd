@@ -2,15 +2,24 @@ extends Control
 
 func _ready() -> void:
 	if global.score["bottem"] > global.score["top"]:
-		$winner.text = "YOU WON!"
+		if global.match_settings["bot"]:
+			$winner.text = global.current_bot_name + " WON!"
+		else:
+			$winner.text = "BOTTEM WON!"
 	else:
-		$winner.text = global.current_bot_name + " WON!"
-	global.score["bottem"] = 0
-	global.score["top"] = 0
+		if global.match_settings["bot"]:
+			$winner.text = global.current_bot_name + " WON!"
+		else:
+			$winner.text = "TOP WON!"
+
 	if global.match_settings["pathway_match"]:
 		$back.text = "BACK TO PATHWAY"
-		if global.completed_stage < global.match_settings["pathway_stage"] and global.score["top"] > global.score["bottem"]:
+		if global.completed_stage < global.match_settings["pathway_stage"] and global.score["top"] < global.score["bottem"]:
 			global.completed_stage = global.match_settings["pathway_stage"]
+			global.save_data(global.save_file_path,global.completed_stage)
+	global.score["bottem"] = 0
+	global.score["top"] = 0
+
 
 
 func _on_back_pressed() -> void:

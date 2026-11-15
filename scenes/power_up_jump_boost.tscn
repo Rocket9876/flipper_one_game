@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bh4t0cprotvlc"]
+
+[ext_resource type="Script" uid="uid://bsxb487uvk3py" path="res://scripts/power_up_jump_boost.gd" id="1_g14ns"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rmpw"]
+radius = 22.0
+height = 56.0
+
+[node name="power_up_jump_boost" type="Node2D" unique_id=1823523847 groups=["powerup"]]
+script = ExtResource("1_g14ns")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=317129648]
+color = Color(7.123351e-06, 0.97857004, 0, 1)
+polygon = PackedVector2Array(0, 0, -22, 24, -14, 24, 0, 9, 13, 24, 22, 24)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=2057896197]
+position = Vector2(0, -15)
+color = Color(7.123351e-06, 0.97857004, 0, 1)
+polygon = PackedVector2Array(0, 0, -22, 24, -14, 24, 0, 9, 13, 24, 22, 24)
+
+[node name="Polygon2D3" type="Polygon2D" parent="." unique_id=1513377413]
+position = Vector2(0, -30)
+color = Color(7.123351e-06, 0.97857004, 0, 1)
+polygon = PackedVector2Array(0, 0, -22, 24, -14, 24, 0, 9, 13, 24, 22, 24)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1275344426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=641681578]
+shape = SubResource("CapsuleShape2D_6rmpw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

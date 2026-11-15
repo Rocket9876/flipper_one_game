@@ -100,5 +100,28 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_g3qw8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_g3qw8")
 text = "powerups"
 
+[node name="against bot" type="CheckButton" parent="." unique_id=1508412792]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 63.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g3qw8")
+button_pressed = true
+text = "match bot"
+
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="toggled" from="against bot" to="." method="_on_local_1v_1_toggled"]

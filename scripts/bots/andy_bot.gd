@@ -2,7 +2,7 @@ extends Node
 
 var near = false
 
-var distance = 300
+var distance = 180
 
 func _physics_process(delta: float) -> void:
 	if global.current_bot == self:

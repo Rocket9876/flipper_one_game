@@ -36,7 +36,7 @@ anchor_bottom = 0.5
 offset_left = -12.5
 offset_top = -365.0
 offset_right = 12.5
-offset_bottom = 4158.0
+offset_bottom = 55840.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -50,9 +50,60 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+stage = 1
 stage_name = "STAGE 0"
+Enemie = "andy"
+min_points = 5
+
+[node name="Pathway - segment2" parent="pathway_elements" unique_id=1568151103 instance=ExtResource("2_p6ejx")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.1170001
+anchor_right = 0.5
+anchor_bottom = 1.1170001
+offset_top = 0.18395996
+offset_bottom = 0.18395996
+grow_horizontal = 2
+grow_vertical = 2
+stage = 2
+stage_name = "STAGE 1"
 Enemie = "alex"
 min_points = 5
+powerups = true
+
+[node name="Pathway - segment3" parent="pathway_elements" unique_id=1737862436 instance=ExtResource("2_p6ejx")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.7350001
+anchor_right = 0.5
+anchor_bottom = 1.7350001
+offset_top = -0.2800293
+offset_bottom = -0.2800293
+grow_horizontal = 2
+grow_vertical = 2
+stage = 3
+stage_name = "STAGE 2"
+Enemie = "alex"
+min_points = 10
+
+[node name="Pathway - segment4" parent="pathway_elements" unique_id=217211979 instance=ExtResource("2_p6ejx")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.7350001
+anchor_right = 0.5
+anchor_bottom = 1.7350001
+offset_top = 399.71997
+offset_bottom = 399.71997
+grow_horizontal = 2
+grow_vertical = 2
+stage = 4
+stage_name = "STAGE 3"
+Enemie = "alex"
+min_points = 10
+powerups = true
 
 [node name="back Button" parent="." unique_id=269549481 instance=ExtResource("3_rlkvg")]
 layout_mode = 1
