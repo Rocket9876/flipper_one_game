@@ -117,7 +117,7 @@ gravity_scale = 0.116
 normal_max_speed = 1000.0
 speed_max_speed = 1800.0
 
-[node name="bot" parent="." unique_id=218765222 instance=ExtResource("4_k0juu")]
+[node name="bot top" parent="." unique_id=218765222 instance=ExtResource("4_k0juu")]
 position = Vector2(0, -324)
 
 [node name="bottem zone" type="Area2D" parent="." unique_id=883159120]
@@ -242,6 +242,9 @@ position = Vector2(0, -144)
 
 [node name="powerup_spawm_rythm" type="Timer" parent="." unique_id=390201185]
 wait_time = 3.0
+
+[node name="bot bottem" parent="." unique_id=399244421 instance=ExtResource("4_k0juu")]
+position = Vector2(0, 324)
 
 [connection signal="body_entered" from="bottem zone" to="." method="_on_bottem_zone_body_entered"]
 [connection signal="body_entered" from="top zone" to="." method="_on_top_zone_body_entered"]

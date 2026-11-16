@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wbiti")
 
-[node name="select Bot" type="OptionButton" parent="." unique_id=1151447051]
+[node name="select Bot 1" type="OptionButton" parent="." unique_id=1151447051]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,6 +122,50 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_g3qw8")
 button_pressed = true
 text = "match bot"
 
+[node name="bot_vs_bot" type="CheckButton" parent="." unique_id=1489140458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 86.5
+offset_right = 62.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g3qw8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g3qw8")
+text = "bot vs bot"
+
+[node name="select Bot 2" type="OptionButton" parent="." unique_id=68892192]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -143.5
+offset_right = 118.0
+offset_bottom = -112.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Select the bot you want to play against."
+selected = 0
+item_count = 2
+popup/item_0/text = "select BOT"
+popup/item_0/id = 1
+popup/item_1/text = "rtzdfhdfvhbdfhdfhdfhdfh"
+popup/item_1/id = 0
+
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="toggled" from="against bot" to="." method="_on_local_1v_1_toggled"]
+[connection signal="toggled" from="bot_vs_bot" to="." method="_on_bot_vs_bot_toggled"]

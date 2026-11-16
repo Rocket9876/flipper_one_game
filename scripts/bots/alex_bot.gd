@@ -10,24 +10,20 @@ var left = 0
 
 var right = 0
 
-
+var side = "top"
 
 
 func _physics_process(delta: float) -> void:
-	if global.current_bot == self:
-		global.bot["name"] = "ALEX"
-	if detect_flipper() == "left":
-		flipper = global.flipper_top_left
-	elif detect_flipper() == "right":
-		flipper = global.flipper_top_right
-	if detect_flipper():
-			flipper.flip()
-
-	
-	
-	if not detect_flipper():
-		down(global.flipper_top_left)
-		down(global.flipper_top_right)
+	if side == "top":
+		if detect_flipper() == "left":
+			flipper = global.flipper_top_left
+		elif detect_flipper() == "right":
+			flipper = global.flipper_top_right
+		if detect_flipper():
+				flipper.flip()
+		if not detect_flipper():
+			down(global.flipper_top_left)
+			down(global.flipper_top_right)
 
 
 func detect_flipper():

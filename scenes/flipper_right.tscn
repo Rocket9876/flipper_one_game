@@ -99,3 +99,5 @@ rotation = 4.1887903
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1866315324]
 libraries/ = SubResource("AnimationLibrary_3snjk")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

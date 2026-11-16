@@ -32,12 +32,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("click"):
 		keyboard_control = false
 	mouse_quadrant = Vector2(get_number_dir(get_global_mouse_position().x),get_number_dir(get_global_mouse_position().y))
-	global.bot["position"] = $bot.position
-	
-	if keyboard_control:
-		detect_flip_action_keyboard()
-	else:
-		detect_flip_action()
+	global.bot["position"] = $"bot top".position
+	global.bot_2["position"] = $"bot bottem".position
+	if not global.match_settings["bot vs bot"]:
+		if keyboard_control:
+			detect_flip_action_keyboard()
+		else:
+			detect_flip_action()
 	ball_counter()
 	for i in global.score:
 		if global.score[i] >= global.match_settings["points_win"]:
@@ -47,14 +48,16 @@ func _physics_process(delta: float) -> void:
 		global.ball.get_node("rotation_lock/RichTextLabel").text = str($Ball_Timer.time_left)
 
 func _ready():
-	print(focused_quadrant)
 	if global.match_settings["powerups"]:
 		$powerup_spawm_rythm.start()
 	global.match_start()
 	global.in_match = true
 	small_restart()
-	if global.match_settings["bot"]:
+	if global.match_settings["bot"] and not global.match_settings["bot vs bot"]:
 		$name_top.text = global.bot["name"]
+	elif global.match_settings["bot vs bot"]:
+		$name_top.text = global.bot["name"]
+		$name_bottem.text = global.bot_2["name"]
 	else:
 		$name_top.text = "top"
 		$name_bottem.text = "bottem"
@@ -95,11 +98,17 @@ func bot_flipper_interface(selection):
 
 func _on_bottem_zone_body_entered(body) -> void:
 	if body.is_in_group("ball"):
-		win("top")
+		if global.ball.fast:
+			win("top",2)
+		else:
+			win("top")
 
 func _on_top_zone_body_entered(body) -> void:
 	if body.is_in_group("ball"):
-		win("bottem")
+		if global.ball.fast:
+			win("bottem",2)
+		else:
+			win("bottem")
 
 func win(player, points = 1):
 	global.ball.position = Vector2(0,0)

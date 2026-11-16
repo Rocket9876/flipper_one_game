@@ -10,6 +10,8 @@ var active_powerups = {"speed":false,"jump":false}
 @export var boost_bounce:float
 @export var normal_bounce:float
 
+var fast = false
+
 @export_color_no_alpha var normal
 @export_color_no_alpha var speed
 @export_color_no_alpha var jump
@@ -57,8 +59,10 @@ func deactivate_all_powerups():
 func speed_color():
 	if linear_velocity.length() > normal_max_speed * 0.9 and not (active_powerups["speed"] or active_powerups["jump"]):
 		modulate = Color("red")
+		fast = true
 	elif not (active_powerups["speed"] or active_powerups["jump"]):
 		modulate = Color("white")
+		fast = false
 
 func activate_jump_boost():
 	$"jump timer".start()

@@ -2,13 +2,17 @@ extends Control
 
 func _ready() -> void:
 	if global.score["bottem"] > global.score["top"]:
-		if global.match_settings["bot"]:
+		if global.match_settings["bot"] and not global.match_settings["bot vs bot"]:
 			$winner.text = global.current_bot_name + " WON!"
+		elif global.match_settings["bot vs bot"]:
+			$winner.text = global.bot["name"] + " WON!"
 		else:
 			$winner.text = "BOTTEM WON!"
 	else:
-		if global.match_settings["bot"]:
+		if global.match_settings["bot"] and not global.match_settings["bot vs bot"]:
 			$winner.text = global.current_bot_name + " WON!"
+		elif global.match_settings["bot vs bot"]:
+			$winner.text = global.bot_2["name"] + " WON!"
 		else:
 			$winner.text = "TOP WON!"
 

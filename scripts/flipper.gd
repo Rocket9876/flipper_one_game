@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 
 func flip(force = false):
 	if state == 0 or force:
-		state = 1
 		if left:
 			$AnimationPlayer.play("flip left")
 		else:
@@ -34,8 +33,14 @@ func flip(force = false):
 
 func flip_down(force = false):
 	if state == 1 or force:
-		state = 0
 		if left:
 			$AnimationPlayer.play("flip down left")
 		else:
 			$AnimationPlayer.play("flip down")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "flip left" or anim_name == "flip":
+		state = 1
+	else:
+		state = 0
